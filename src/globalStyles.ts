@@ -5,7 +5,7 @@ export const theme = {
         fontFamily: 'Jost, sans-serif',
         fontSize: '18px',
         fontWeight: '400',
-        lintHeight: '1.67',
+        lineHeight: '1.67',
         wordWrap: 'break-word',
         color: '#666666',
       },
@@ -30,7 +30,7 @@ export const theme = {
         borderInputFocus: '#000000',
       },
       'h1, h2, h3, h4, h5, h6': {
-        fontWeight: '400',
+        fontWeight: '400 !important',
         color: '#000000',
         fontFamily: 'Marcellus, sans-serif',
       },
@@ -47,7 +47,7 @@ export const theme = {
         fontSize: '30px',
       },
       h5: {
-        fontSize: '24px',
+        fontSize: '24px !important',
       },
       h6: {
         fontSize: '20px',
