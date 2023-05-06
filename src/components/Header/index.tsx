@@ -18,7 +18,6 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { theme } from '../../globalStyles';
 import { primaryMenu } from '../../data/constants';
 
 import campaginIcon from '../../assets/svgcampagin.svg';
@@ -223,7 +222,7 @@ const Header = () => {
               cursor="pointer"
               onClick={onClose}
               lineHeight="20px"
-              color={theme.styles.global.colors.darker}
+              color="brand.darker"
             />
           </DrawerHeader>
 
