@@ -1,5 +1,5 @@
-import Philosophy from '../../components/Philosophy';
-import Slide from '../../components/Slide';
+import Philosophy from '@durotan/components/Philosophy';
+import Slide from '@durotan/components/Slide';
 
 const HomePage = () => {
   return (
