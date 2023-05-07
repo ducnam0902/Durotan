@@ -18,15 +18,15 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { primaryMenu } from '../../data/constants';
+import { primaryMenu } from '@durotan/data/constants';
 
-import campaginIcon from '../../assets/svgcampagin.svg';
-import closeIcon from '../../assets/svgclose.svg';
-import searchIcon from '../../assets/svgsearch.svg';
-import accountIcon from '../../assets/svgaccount.svg';
-import favouriteIcon from '../../assets/svgfavourite.svg';
-import cartIcon from '../../assets/svgcart.svg';
-import hamburgerIcon from '../../assets/svghamburger.svg';
+import campaginIcon from '@durotan/assets/svgcampagin.svg';
+import closeIcon from '@durotan/assets/svgclose.svg';
+import searchIcon from '@durotan/assets/svgsearch.svg';
+import accountIcon from '@durotan/assets/svgaccount.svg';
+import favouriteIcon from '@durotan/assets/svgfavourite.svg';
+import cartIcon from '@durotan/assets/svgcart.svg';
+import hamburgerIcon from '@durotan/assets/svghamburger.svg';
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

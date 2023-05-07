@@ -3,12 +3,12 @@ import { Box, Grid, GridItem, Heading, Text, UnorderedList, ListItem, Container 
 import { Input } from '@chakra-ui/input';
 import { Button } from '@chakra-ui/button';
 
-import { secondaryMenu } from '../../data/constants';
-import svgtwiiter from '../../assets/svgtwiiter.svg';
-import svgface from '../../assets/svgface.svg';
-import svginsta from '../../assets/svginsta.svg';
-import svgyoutube from '../../assets/svgyoutube.svg';
-import svgpin from '../../assets/svgpin.svg';
+import { secondaryMenu } from '@durotan/data/constants';
+import svgtwiiter from '@durotan/assets/svgtwiiter.svg';
+import svgface from '@durotan/assets/svgface.svg';
+import svginsta from '@durotan/assets/svginsta.svg';
+import svgyoutube from '@durotan/assets/svgyoutube.svg';
+import svgpin from '@durotan/assets/svgpin.svg';
 
 const Footer = () => {
   return (

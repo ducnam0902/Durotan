@@ -1,10 +1,10 @@
-import slide1 from '../../assets/slider01.jpg';
-import slide2 from '../../assets/slider02.jpg';
-import nextIcon from '../../assets/svgnext.svg';
-import previousIcon from '../../assets/svgprevious.svg';
+import slide1 from '@durotan/assets/slider01.jpg';
+import slide2 from '@durotan/assets/slider02.jpg';
+import nextIcon from '@durotan/assets/svgnext.svg';
+import previousIcon from '@durotan/assets/svgprevious.svg';
 
 import { Box, Image, Heading, Text, Container } from '@chakra-ui/react';
-import { elementorItem } from '../../data/constants';
+import { elementorItem } from '@durotan/data/constants';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FunctionComponent } from 'react';
