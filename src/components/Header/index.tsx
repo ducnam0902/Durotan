@@ -4,9 +4,6 @@ import {
   Image,
   Grid,
   GridItem,
-  UnorderedList,
-  ListItem,
-  Container,
   Link as CustomLink,
   Drawer,
   DrawerOverlay,
@@ -16,6 +13,7 @@ import {
   DrawerFooter,
   useDisclosure,
   Heading,
+  Circle,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { primaryMenu } from '@durotan/data/constants';
@@ -27,180 +25,175 @@ import accountIcon from '@durotan/assets/svgaccount.svg';
 import favouriteIcon from '@durotan/assets/svgfavourite.svg';
 import cartIcon from '@durotan/assets/svgcart.svg';
 import hamburgerIcon from '@durotan/assets/svghamburger.svg';
+import { useState } from 'react';
 
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isShowMegasales, setIsShowMegasales] = useState<boolean>(() => {
+    const megaSales: string | null = localStorage.getItem('megaSales');
+    return megaSales === null ? true : Boolean(JSON.parse(megaSales));
+  });
+
+  const handleCloseMegaSales = () => {
+    localStorage.setItem('megaSales', JSON.stringify(!isShowMegasales));
+    setIsShowMegasales(!isShowMegasales);
+  };
 
   return (
     <Box>
-      <Box background="#2b2b2d" position="relative">
-        <Text
-          letterSpacing="0.7px"
-          color="#eaddc7"
-          textTransform="uppercase"
-          fontWeight="500"
-          textAlign="center"
-          padding="10px 15px"
-          marginBottom="0"
-          fontSize={{ base: '10px', lg: '14px' }}
-        >
-          <Image
-            display="inline-block"
-            marginRight="15px"
-            src={campaginIcon}
-            objectFit="cover"
-            boxSize={{ base: '12px', lg: '20px' }}
-          />
-          <Box fontWeight="600" as="span" color="#fe441b" marginRight="10px">
-            Mega Sale
-          </Box>
-          discount all item up to 30% for christmast event
-        </Text>
-        <Image
-          position="absolute"
-          display="inline-block"
-          src={closeIcon}
-          objectFit="cover"
-          boxSize={{ base: '12px', lg: '16px' }}
-          top="50%"
-          right="10px"
-          transform="translateY(-50%)"
-          cursor="pointer"
-        />
-      </Box>
-      <Box backgroundColor="#232324" height={{ base: '45px', lg: '90px' }} lineHeight={{ base: '45px', lg: '90px' }}>
-        <Container maxW={{ base: 'container.sm', lg: 'container.xl' }} padding="0">
-          <Grid
-            templateColumns={{ base: 'repeat(2,1fr)', lg: 'repeat(3,1fr)' }}
-            gap={2}
-            borderBottom={{ base: '1px solid #c4c3bd', lg: 'none' }}
+      {isShowMegasales && (
+        <Box background="#2b2b2d" position="relative">
+          <Text
+            letterSpacing="0.7px"
+            color="white"
+            textTransform="uppercase"
+            fontWeight="500"
+            textAlign="center"
+            padding="10px 15px"
+            marginBottom="0"
+            fontSize={{ base: '10px', lg: '14px' }}
           >
-            <GridItem w="100%" display={{ base: 'none', lg: 'block' }}>
-              <UnorderedList fontSize="16px" letterSpacing="0.7px" listStyleType="none" display="flex" color="#eaddc7">
-                {primaryMenu.map((menuItem, index) => (
-                  <ListItem
-                    key={index}
-                    paddingLeft={index === 0 ? '0' : '29px'}
-                    paddingRight="29px"
-                    textTransform="uppercase"
+            <Image
+              display="inline-block"
+              marginRight="15px"
+              src={campaginIcon}
+              objectFit="cover"
+              boxSize={{ base: '12px', lg: '20px' }}
+            />
+            <Box fontWeight="600" as="span" color="#fe441b" marginRight="10px">
+              Mega Sale
+            </Box>
+            discount all item up to 30% for christmast event
+          </Text>
+          <Image
+            position="absolute"
+            display="inline-block"
+            src={closeIcon}
+            objectFit="cover"
+            boxSize={{ base: '12px', lg: '16px' }}
+            top="50%"
+            right="10px"
+            transform="translateY(-50%)"
+            cursor="pointer"
+            onClick={handleCloseMegaSales}
+          />
+        </Box>
+      )}
+      <Box backgroundColor="#232324" height={{ base: '45px', lg: '97px' }} lineHeight={{ base: '45px', lg: '97px' }}>
+        <Grid
+          templateColumns={{ base: '25px repeat(6,1fr) 25px', xl: '60px repeat(10,1fr) 60px' }}
+          borderBottom={{ base: '1px solid #c4c3bd', xl: 'none' }}
+          height={{ base: '45px', lg: '97px' }}
+        >
+          <GridItem hideBelow="xl" colStart={2} colEnd={6}>
+            <Grid templateColumns="repeat(5, 100px)" justifyItems="center">
+              {primaryMenu.map((menuItem, index) => (
+                <Box
+                  color="#eaddc7"
+                  fontSize="16px"
+                  letterSpacing="0.7px"
+                  listStyleType="none"
+                  key={index}
+                  textTransform="uppercase"
+                  cursor="pointer"
+                  _hover={{
+                    color: '#da5f39',
+                  }}
+                >
+                  {menuItem}
+                </Box>
+              ))}
+            </Grid>
+          </GridItem>
+          <GridItem
+            colStart={{ base: 2, xl: 6 }}
+            colEnd={{ base: 3, xl: 8 }}
+            textAlign={{ base: 'left', xl: 'center' }}
+          >
+            <CustomLink
+              as={Link}
+              to="/"
+              fontSize={{ base: '22px', lg: '30px' }}
+              letterSpacing="0.1em"
+              textTransform="uppercase"
+              textDecoration="none"
+              color="#eaddc7"
+              fontWeight="400"
+              fontFamily="Marcellus, sans-serif"
+              _hover={{
+                color: '#eaddc7',
+                listStyleType: 'none',
+              }}
+              _active={{
+                color: '#eaddc7',
+              }}
+            >
+              Durotan
+            </CustomLink>
+          </GridItem>
+          <GridItem colStart={{ base: 7, xl: 10 }} colEnd={{ base: 8, xl: 12 }} justifyItems={'end'}>
+            <Grid
+              templateColumns="repeat(4, 28px)"
+              height={{ base: '49px', lg: '97px' }}
+              justifyContent="end"
+              gap="10px"
+            >
+              <GridItem colSpan={1} alignSelf="center">
+                <Image src={searchIcon} objectFit="cover" boxSize={{ base: '18px', lg: '21px' }} cursor="pointer" />
+              </GridItem>
+              <GridItem colSpan={1} alignSelf="center">
+                <Image src={accountIcon} objectFit="cover" boxSize={{ base: '18px', lg: '21px' }} cursor="pointer" />
+              </GridItem>
+              <GridItem colSpan={1} alignSelf="center" hideBelow="xl">
+                <Box display="inherit" position="relative">
+                  <Image
+                    marginRight="19px"
+                    src={favouriteIcon}
+                    objectFit="cover"
+                    boxSize={{ base: '18px', lg: '22px' }}
                     cursor="pointer"
-                    _hover={{
-                      color: '#da5f39',
-                    }}
+                  />
+                  <Circle
+                    background="#da5f39"
+                    size="16px"
+                    fontSize="10px"
+                    lineHeight="20px"
+                    color="#ffffff"
+                    position="absolute"
+                    top="10px"
+                    right="3px"
+                    zIndex="3"
                   >
-                    {menuItem}
-                  </ListItem>
-                ))}
-              </UnorderedList>
-            </GridItem>
-            <GridItem w="100%">
-              <CustomLink
-                as={Link}
-                to="/"
-                fontSize={{ base: '22px', lg: '30px' }}
-                letterSpacing="0.1em"
-                textTransform="uppercase"
-                textDecoration="none"
-                color="#eaddc7"
-                fontWeight="400"
-                fontFamily="Marcellus, sans-serif"
-                _hover={{
-                  color: '#eaddc7',
-                  listStyleType: 'none',
-                }}
-                _active={{
-                  color: '#eaddc7',
-                }}
-              >
-                Durotan
-              </CustomLink>
-            </GridItem>
-            <GridItem w="100%" display="flex" justifyContent="flex-end" alignItems="center">
-              <Image
-                display="inline-block"
-                marginRight="19px"
-                src={searchIcon}
-                objectFit="cover"
-                boxSize={{ base: '18px', lg: '20px' }}
-                cursor="pointer"
-              />
-              <Image
-                display="inline-block"
-                marginRight="19px"
-                marginLeft={{ base: '0', lg: '19px' }}
-                src={accountIcon}
-                objectFit="cover"
-                boxSize={{ base: '18px', lg: '20px' }}
-                cursor="pointer"
-              />{' '}
-              <Box display="inherit" position="relative">
-                <Image
-                  marginRight="19px"
-                  marginLeft={{ base: '0', lg: '19px' }}
-                  src={favouriteIcon}
-                  objectFit="cover"
-                  boxSize={{ base: '18px', lg: '20px' }}
-                  cursor="pointer"
-                  display={{ base: 'none', lg: 'inline-block' }}
-                />
-                <Box
-                  display={{ base: 'none', lg: 'inline-block' }}
-                  borderRadius="50%"
-                  background="#da5f39"
-                  width="20px"
-                  height="20px"
-                  fontSize="10px"
-                  lineHeight="20px"
-                  textAlign="center"
-                  color="#ffffff"
-                  position="absolute"
-                  top="10px"
-                  right="10px"
-                  zIndex="3"
-                >
-                  0
+                    0
+                  </Circle>
                 </Box>
-              </Box>
-              <Box display="inherit" position="relative" onClick={onOpen}>
-                <Image
-                  display="inline-block"
-                  marginRight="19px"
-                  marginLeft={{ base: '0', lg: '19px' }}
-                  src={cartIcon}
-                  objectFit="cover"
-                  boxSize={{ base: '18px', lg: '20px' }}
-                  cursor="pointer"
-                />
-                <Box
-                  borderRadius="50%"
-                  background="#da5f39"
-                  width="20px"
-                  height="20px"
-                  fontSize="10px"
-                  lineHeight="20px"
-                  textAlign="center"
-                  color="#ffffff"
-                  position="absolute"
-                  top="10px"
-                  right="10px"
-                  zIndex="3"
-                >
-                  2
+              </GridItem>
+              <GridItem colSpan={1} alignSelf="center">
+                <Box display="inherit" position="relative" onClick={onOpen}>
+                  <Image src={cartIcon} objectFit="cover" boxSize={{ base: '18px', lg: '22px' }} cursor="pointer" />
+                  <Circle
+                    background="#da5f39"
+                    size="16px"
+                    fontSize="10px"
+                    lineHeight="20px"
+                    color="#ffffff"
+                    position="absolute"
+                    top="10px"
+                    right="3px"
+                    zIndex="3"
+                  >
+                    2
+                  </Circle>
                 </Box>
-              </Box>
-              <Image
-                marginRight="19px"
-                marginLeft={{ base: '0', lg: '19px' }}
-                src={hamburgerIcon}
-                objectFit="cover"
-                cursor="pointer"
-                boxSize={{ base: '18px', lg: '20px' }}
-                display={{ base: 'inline-block', lg: 'none' }}
-              />
-            </GridItem>
-          </Grid>
-        </Container>
+              </GridItem>
+              <GridItem colSpan={1} hideFrom="xl" alignSelf="center">
+                <Image src={hamburgerIcon} objectFit="cover" cursor="pointer" boxSize={{ base: '18px', lg: '20px' }} />
+              </GridItem>
+            </Grid>
+          </GridItem>
+        </Grid>
       </Box>
+
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={{ base: 'xs', lg: 'md' }}>
         <DrawerOverlay />
         <DrawerContent paddingLeft={{ base: '20px', lg: '60px' }} paddingRight={{ base: '20px', lg: '60px' }}>

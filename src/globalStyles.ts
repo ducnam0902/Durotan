@@ -1,12 +1,17 @@
 import { extendTheme } from '@chakra-ui/react';
 export const theme = extendTheme({
-  'html, body': {
-    fontFamily: 'Jost, sans-serif',
-    fontSize: '18px',
-    fontWeight: '400',
-    lineHeight: '1.67',
-    wordWrap: 'break-word',
-    color: '#666666',
+  styles: {
+    global: {
+      body: {
+        fontFamily: 'Jost, sans-serif',
+        fontSize: '62.5%',
+        fontWeight: '400',
+        lineHeight: '1.67',
+        wordWrap: 'break-word',
+        color: '#666666',
+        backgroundColor: '#fff',
+      },
+    },
   },
   fonts: {
     body: 'Jost, sans-serif',
@@ -16,6 +21,7 @@ export const theme = extendTheme({
     darker: '#000000',
     dark: '#222222',
     light: '#ffffff',
+    white: '#eaddc7',
     gray: '#999999',
     primary: '#928656',
     blue: '#00ccff',
@@ -46,7 +52,6 @@ export const theme = extendTheme({
   },
   'a:focus, a:hover, a:active': {
     outline: 0,
-    color: '#928656',
   },
   p: {
     marginBottom: '1.5em',

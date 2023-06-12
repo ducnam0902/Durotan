@@ -81,7 +81,7 @@ const Philosophy = () => {
                   fontSize="18px"
                   borderRadius="0"
                   boxSizing="content-box"
-                  transition="0.4s"
+                  transition="all 0.4s"
                   backgroundColor="#DA5F39"
                   _hover={{
                     color: '#DA5F39',
