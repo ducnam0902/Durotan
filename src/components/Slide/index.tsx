@@ -3,11 +3,12 @@ import slide2 from '@durotan/assets/slider02.jpg';
 import nextIcon from '@durotan/assets/svgnext.svg';
 import previousIcon from '@durotan/assets/svgprevious.svg';
 
-import { Box, Image, Heading, Text, Container } from '@chakra-ui/react';
+import { Box, Image, Heading, Text, Container, Flex } from '@chakra-ui/react';
 import { elementorItem } from '@durotan/data/constants';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
+
 type titleComponentProps = {
   subTitle: string;
   mainTitle: string;
@@ -19,9 +20,9 @@ type elementorWidgetProps = {
   title: string;
 };
 
-const RenderElementorWidget: FunctionComponent<elementorWidgetProps> = ({ image, title }) => {
+const RenderElementorWidget: FC<elementorWidgetProps> = ({ image, title }) => {
   return (
-    <Box width="234px" marginLeft="15px" display="flex" justifyContent="center" alignItems="center">
+    <Flex width="234px" marginLeft="15px" justifyContent="center" alignItems="center">
       <Image src={image} width="48px !important" marginRight="22px" />
       <Text
         cursor="pointer"
@@ -33,11 +34,11 @@ const RenderElementorWidget: FunctionComponent<elementorWidgetProps> = ({ image,
       >
         {title}
       </Text>
-    </Box>
+    </Flex>
   );
 };
 
-const RenderTitleHeader: FunctionComponent<titleComponentProps> = ({ subTitle, mainTitle, image }) => {
+const RenderTitleHeader: FC<titleComponentProps> = ({ subTitle, mainTitle, image }) => {
   return (
     <Box
       zIndex="4"
@@ -60,12 +61,12 @@ const RenderTitleHeader: FunctionComponent<titleComponentProps> = ({ subTitle, m
       <Text
         fontSize="24px"
         fontWeight="500"
-        lineHeight={{ base: '20px', md: '80px' }}
+        lineHeight={{ base: '20px', md: '60px' }}
         letterSpacing="1.2px"
-        zIndex="2"
+        zIndex="10"
         position="absolute"
         left="50%"
-        top="30%"
+        top="35%"
         transform="translate(-50%, -30%)"
         color="#EADDC7"
         textTransform="uppercase"
@@ -73,16 +74,17 @@ const RenderTitleHeader: FunctionComponent<titleComponentProps> = ({ subTitle, m
         {subTitle}
       </Text>
       <Heading
-        fontSize={{ base: '40px', lg: '80px', xl: '90px' }}
+        fontSize={{ base: '30px', lg: '50px', xl: '75px' }}
         textTransform="uppercase"
         lineHeight={{ base: '40px', lg: '80px', xl: '120px' }}
         color="#FBF7EF"
-        zIndex="2"
+        zIndex="10"
         position="absolute"
         left="50%"
-        top="60%"
+        top="55%"
         transform="translate(-50%, -60%)"
         fontWeight="400"
+        width="100%"
       >
         {mainTitle}
       </Heading>
