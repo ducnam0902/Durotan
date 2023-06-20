@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-
 import BaseLayout from './components/BaseLayout';
 import HomePage from './pages/HomePage';
+
 function App() {
   return (
     <BrowserRouter>
