@@ -1,4 +1,4 @@
-import { Box, Container, Grid, GridItem } from '@chakra-ui/layout';
+import { Container, Grid, GridItem } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/image';
 
 import brand01 from '@durotan/assets/brand01.png';
