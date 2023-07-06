@@ -9,7 +9,7 @@ const ImageWrapper = styled(Box)`
   }
 `;
 
-const Philosophy = () => {
+const Philosophy: React.FC = () => {
   return (
     <Box paddingTop="55px">
       <Container maxW={{ base: 'container.sm', md: 'container.lg' }} padding="15px" textAlign="center">

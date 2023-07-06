@@ -4,31 +4,31 @@ import shirtIcon from '../assets/shirt.svg';
 import shoeIcon from '../assets/shoe.svg';
 import tagIcon from '../assets/tags.svg';
 
-export const primaryMenu = ['Home', 'Shop', 'Product', 'Blog', 'Pages'];
+export const primaryMenu = ['Home', 'Shop', 'Blog', 'About', 'Contact'];
 export const secondaryMenu = [
   {
-    title: 'About',
+    title: 'Home',
     link: '/',
+  },
+  {
+    title: 'Shop',
+    link: '/shop',
   },
   {
     title: 'Blog',
-    link: '/',
+    link: '/blog',
   },
   {
-    title: 'Contact',
-    link: '/',
+    title: 'About',
+    link: '/about',
+  },
+  {
+    title: 'Contact us',
+    link: '/contact',
   },
   {
     title: 'Policy',
-    link: '/',
-  },
-  {
-    title: 'Shipping',
-    link: '/',
-  },
-  {
-    title: 'Help Center',
-    link: '/',
+    link: '/policy',
   },
 ];
 

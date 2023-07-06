@@ -2,6 +2,7 @@ import { Image } from '@chakra-ui/image';
 import { Box, Grid, GridItem, Heading, Text, Wrap, WrapItem, Center, Flex } from '@chakra-ui/layout';
 import { Input } from '@chakra-ui/input';
 import { Button } from '@chakra-ui/button';
+import { Link } from 'react-router-dom';
 
 import { secondaryMenu } from '@durotan/data/constants';
 import svgtwiiter from '@durotan/assets/svgtwiiter.svg';
@@ -13,11 +14,11 @@ import { FC } from 'react';
 
 const socialIcons = [svgtwiiter, svgface, svginsta, svgyoutube, svgpin];
 
-interface HeadingTitleProps {
+interface IHeadingTitleProps {
   title: string;
 }
 
-const HeadingTitle: FC<HeadingTitleProps> = ({ title }) => (
+const HeadingTitle: FC<IHeadingTitleProps> = ({ title }) => (
   <Heading
     as="h6"
     marginBottom="24px"
@@ -33,7 +34,7 @@ const HeadingTitle: FC<HeadingTitleProps> = ({ title }) => (
   </Heading>
 );
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <Box>
       <Box borderTop="1px solid #dbdbdb" borderBottom="1px solid #dbdbdb">
@@ -125,6 +126,8 @@ const Footer = () => {
           {secondaryMenu.map((menuItem, index) => (
             <WrapItem
               key={index}
+              as={Link}
+              to={menuItem.link}
               paddingLeft="29px"
               paddingRight="29px"
               textTransform="uppercase"

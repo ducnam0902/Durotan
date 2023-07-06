@@ -7,7 +7,7 @@ import brand03 from '@durotan/assets/brand03.png';
 import brand04 from '@durotan/assets/brand04.png';
 import brand05 from '@durotan/assets/brand05.png';
 
-const Branch = () => {
+const Branch: React.FC = () => {
   return (
     <Container
       maxW="container.xl"

@@ -27,7 +27,7 @@ import cartIcon from '@durotan/assets/svgcart.svg';
 import hamburgerIcon from '@durotan/assets/svghamburger.svg';
 import { useState } from 'react';
 
-const Header = () => {
+const Header: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isShowMegasales, setIsShowMegasales] = useState<boolean>(() => {
     const megaSales: string | null = localStorage.getItem('megaSales');
@@ -99,6 +99,8 @@ const Header = () => {
                   _hover={{
                     color: '#da5f39',
                   }}
+                  as={Link}
+                  to={menuItem === 'Home' ? '/' : `/${menuItem.toLowerCase()}`}
                 >
                   {menuItem}
                 </Box>

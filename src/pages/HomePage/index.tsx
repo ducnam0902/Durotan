@@ -3,7 +3,7 @@ import FeaturedCollection from '@durotan/components/FeaturedCollection';
 import Philosophy from '@durotan/components/Philosophy';
 import Slide from '@durotan/components/Slide';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <Slide />
