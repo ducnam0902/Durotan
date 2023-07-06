@@ -1,5 +1,5 @@
 import { Image } from '@chakra-ui/image';
-import { Box, Grid, GridItem, Heading, Text, Wrap, WrapItem, Container, Center, Flex } from '@chakra-ui/layout';
+import { Box, Grid, GridItem, Heading, Text, Wrap, WrapItem, Center, Flex } from '@chakra-ui/layout';
 import { Input } from '@chakra-ui/input';
 import { Button } from '@chakra-ui/button';
 

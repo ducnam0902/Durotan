@@ -18,6 +18,7 @@ const Philosophy = () => {
           fontSize={{ base: '30px', md: '48px' }}
           fontWeight="400"
           lineHeight={{ base: '30px', md: '64px' }}
+          color="darker"
         >
           Our Philosophy
         </Heading>
