@@ -9,18 +9,18 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { FC } from 'react';
 
-type titleComponentProps = {
+interface ITitleHeaderProps {
   subTitle: string;
   mainTitle: string;
   image: string;
-};
+}
 
-type elementorWidgetProps = {
+interface IElementorWidgetProps {
   image: string;
   title: string;
-};
+}
 
-const RenderElementorWidget: FC<elementorWidgetProps> = ({ image, title }) => {
+const RenderElementorWidget: FC<IElementorWidgetProps> = ({ image, title }) => {
   return (
     <Flex width="234px" marginLeft="15px" justifyContent="center" alignItems="center">
       <Image src={image} width="48px !important" marginRight="22px" />
@@ -38,7 +38,7 @@ const RenderElementorWidget: FC<elementorWidgetProps> = ({ image, title }) => {
   );
 };
 
-const RenderTitleHeader: FC<titleComponentProps> = ({ subTitle, mainTitle, image }) => {
+const RenderTitleHeader: FC<ITitleHeaderProps> = ({ subTitle, mainTitle, image }) => {
   return (
     <Box
       zIndex="4"
