@@ -1,19 +1,10 @@
-import { Box, Container, Flex } from '@chakra-ui/layout';
-import { Heading } from '@chakra-ui/react';
-import shirt from '@durotan/assets/tshirt.jpg';
+import { Box, Container, Grid, Stack } from '@chakra-ui/layout';
+import { Heading, Skeleton } from '@chakra-ui/react';
 import ProductItem from '../ProductItem';
-
-const productItems = [
-  {
-    productName: 'Basic T-Shirt',
-    productCategory: 'GAP',
-    sizes: ['S', 'M', 'L', 'XL'],
-    price: 29.0,
-    images: [shirt],
-  },
-];
+import { useGetFeaturedProductQuery } from '@durotan/services';
 
 const FeaturedCollection: React.FC = () => {
+  const { data, isLoading } = useGetFeaturedProductQuery('initial');
   return (
     <Box>
       <Heading
@@ -26,11 +17,17 @@ const FeaturedCollection: React.FC = () => {
         Featured Collections
       </Heading>
       <Container maxW={{ base: 'container.sm', md: 'container.xl' }} padding="30px">
-        <Flex>
-          {productItems.map((item, key) => (
-            <ProductItem key={key} {...item} />
-          ))}
-        </Flex>
+        <Grid templateColumns={{ base: '"repeat(1, 1fr)"', lg: 'repeat(4, 1fr)' }} gap={6}>
+          {isLoading ? (
+            <Stack>
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+            </Stack>
+          ) : (
+            data?.map((item, key) => <ProductItem key={key} {...item} />)
+          )}
+        </Grid>
       </Container>
     </Box>
   );
