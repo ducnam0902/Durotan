@@ -12,18 +12,18 @@ interface IFeaturedCollection {
   quanity: number;
 }
 
-const ProductItem: React.FC<FeaturedState> = ({ name, price, category, quanity }) => {
+const ProductItem: React.FC<FeaturedState> = ({ name, price, category, colorGroup }) => {
   const { handleSubmit, setValue, getValues } = useForm({
     defaultValues: {
       productName: name,
-      size: quanity[0].size[0].sizeName,
+      size: colorGroup[0].sizeGroup[0].sizeName,
       quanity: 1,
-      color: quanity[0].colorName,
+      color: colorGroup[0].colorName,
     },
   });
 
   const currentColor = useMemo(() => {
-    return quanity.find(item => item.colorName === getValues('color'));
+    return colorGroup.find(item => item.colorName === getValues('color'));
   }, [getValues('color')]);
 
   const onSubmit: SubmitHandler<IFeaturedCollection> = data => {
@@ -32,7 +32,7 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, quanity }
 
   const { getRadioProps } = useRadioGroup({
     name: 'color',
-    defaultValue: quanity[0].colorName,
+    defaultValue: colorGroup[0].colorName,
     onChange: newColor => {
       setValue('color', newColor);
     },
@@ -40,8 +40,8 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, quanity }
 
   const { getRadioProps: getRadioPropsSize } = useRadioGroup({
     name: 'size',
-    defaultValue: quanity[0].size[0].sizeName,
-    isDisabled: currentColor?.size.find(item => item.sizeName === getValues('size'))?.quanityInStock === 0,
+    defaultValue: colorGroup[0].sizeGroup[0].sizeName,
+    isDisabled: currentColor?.sizeGroup.find(item => item.sizeName === getValues('size'))?.quanity === 0,
     onChange: newSize => {
       setValue('size', newSize);
     },
@@ -85,7 +85,7 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, quanity }
             >
               <Stack spacing={[1, 5]} direction={['column', 'row']}>
                 <RadioGroup name="color" sx={{ display: 'flex' }}>
-                  {quanity?.map(({ colorName }) => {
+                  {colorGroup?.map(({ colorName }) => {
                     const radio = getRadioProps({ value: colorName });
                     return (
                       <CustomRadio key={colorName} {...radio}>
@@ -97,10 +97,10 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, quanity }
               </Stack>
               <Stack spacing={[1, 5]} direction={['column', 'row']}>
                 <RadioGroup name="size" sx={{ display: 'flex' }}>
-                  {currentColor?.size.map(({ sizeName, quanityInStock }) => {
+                  {currentColor?.sizeGroup.map(({ sizeName, quanity }) => {
                     const radio = getRadioPropsSize({ value: sizeName });
                     return (
-                      <CustomRadio key={sizeName} {...radio} isDisabled={quanityInStock === 0}>
+                      <CustomRadio key={sizeName} {...radio} isDisabled={quanity === 0}>
                         {sizeName}
                       </CustomRadio>
                     );
