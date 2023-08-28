@@ -40,7 +40,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <Box>
+    <Box position="sticky" width="100%" zIndex="2000" top="0" left="0">
       {isShowMegasales && (
         <Box background="#2b2b2d" position="relative">
           <Text

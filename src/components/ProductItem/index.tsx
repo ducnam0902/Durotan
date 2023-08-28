@@ -65,8 +65,10 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, colorGrou
         >
           <Box
             backgroundImage={currentColor?.images[0]}
-            backgroundSize="cover"
+            backgroundRepeat="no-repeat"
+            backgroundSize="contain"
             backgroundPosition="center"
+            backgroundClip="border-box"
             width="100%"
             height="348px"
             position="relative"

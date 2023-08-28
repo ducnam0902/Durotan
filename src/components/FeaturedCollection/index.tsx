@@ -1,5 +1,5 @@
-import { Box, Container, Grid, Stack } from '@chakra-ui/layout';
-import { Heading, Skeleton } from '@chakra-ui/react';
+import { Box, Container, Grid, Center, Stack } from '@chakra-ui/layout';
+import { Heading, Spinner } from '@chakra-ui/react';
 import ProductItem from '../ProductItem';
 import { useGetFeaturedProductQuery } from '@durotan/services';
 
@@ -17,17 +17,17 @@ const FeaturedCollection: React.FC = () => {
         Featured Collections
       </Heading>
       <Container maxW={{ base: 'container.sm', md: 'container.xl' }} padding="30px">
-        <Grid templateColumns={{ base: '"repeat(1, 1fr)"', lg: 'repeat(4, 1fr)' }} gap={6}>
-          {isLoading ? (
-            <Stack>
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-            </Stack>
-          ) : (
-            data?.map((item, key) => <ProductItem key={key} {...item} />)
-          )}
-        </Grid>
+        {isLoading ? (
+          <Center>
+            <Spinner thickness="4px" speed="1.5s" size="xl" />
+          </Center>
+        ) : (
+          <Grid templateColumns={{ base: '"repeat(1, 1fr)"', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={6}>
+            {data?.map((item, key) => (
+              <ProductItem key={key} {...item} />
+            ))}
+          </Grid>
+        )}
       </Container>
     </Box>
   );
