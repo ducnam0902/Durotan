@@ -17,7 +17,7 @@ pipeline {
       parallel {
         stage('Run Tests') {
           steps {
-            sh 'yarn coverage`'
+            sh 'yarn coverage'
           }
         }
         stage('Create Build Artifacts') {
