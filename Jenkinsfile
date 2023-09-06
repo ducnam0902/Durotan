@@ -13,32 +13,28 @@ pipeline {
                 sh 'yarn'
             }
         }
-        stage('Test and Build') {
-            parallel {
-                stage('Run Tests') {
-                    steps {
-                        sh 'yarn coverage'
-                    }
-                }
-                        stage('SonarQube Analysis') {
-                    steps {
-                        script {
-                            def scannerHome = tool 'sonarscan'
-                            withSonarQubeEnv('sonarscan') {
-                                sh "${tool('sonarscan')}/bin/sonar-scanner \
-                                            -Dsonar.projectKey=durotan \
-                                            -Dsonar.projectName=durotan \
-                                            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info"
-                            }
+        stage('Run Test') {
+            steps {
+                sh 'yarn coverage'
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonarscan'
+                    withSonarQubeEnv('sonarscan') {
+                        sh "${tool('sonarscan')}/bin/sonar-scanner \
+                            -Dsonar.projectKey=durotan \
+                            -Dsonar.projectName=durotan \
+                            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info"
                         }
                     }
-                        }
-                stage('Create Build Artifacts') {
+            }
+        }
+        stage('Create Build Artifacts') {
                     steps {
                         sh 'yarn build'
                     }
-                }
-            }
         }
     }
 }
