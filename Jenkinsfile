@@ -1,4 +1,6 @@
 pipeline {
+  agent any
+  tools {nodejs "nodejs"}
   environment {
     CI = 'true'
     HOME = '.'
@@ -15,7 +17,7 @@ pipeline {
       parallel {
         stage('Run Tests') {
           steps {
-            sh 'yarn coverage`'
+            sh 'yarn coverage'
           }
         }
         stage('Create Build Artifacts') {
