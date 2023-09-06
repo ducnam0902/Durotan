@@ -8,5 +8,12 @@ export default defineConfig({
     alias: {
       '@durotan': path.resolve(__dirname, './src'),
     },
+    reporters: ['default', 'vitest-sonar-reporter'],
+    outputFile: {
+      'vitest-sonar-reporter': './sonar-report.xml',
+    },
+    coverage: {
+      reporter: 'lcov',
+    },
   },
 });
