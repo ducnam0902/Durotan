@@ -94,7 +94,7 @@ const RenderTitleHeader: FC<ITitleHeaderProps> = ({ subTitle, mainTitle, image }
 
 const Slide = () => {
   return (
-    <Box position="relative">
+    <Box position="relative" zIndex="2">
       <Carousel
         infiniteLoop
         autoPlay

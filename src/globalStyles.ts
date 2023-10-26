@@ -2,14 +2,45 @@ import { extendTheme } from '@chakra-ui/react';
 export const theme = extendTheme({
   styles: {
     global: {
-      body: {
-        fontFamily: 'Jost, sans-serif',
+      'html, body': {
+        fontFamily: 'body',
         fontSize: '62.5%',
         fontWeight: '400',
         lineHeight: '1.67',
         wordWrap: 'break-word',
-        color: '#666666',
+        color: 'textMain',
         backgroundColor: '#fff',
+      },
+      a: {
+        color: 'darker',
+        textDecoration: 'none',
+        transition: '0.3s ease-in',
+      },
+      p: {
+        marginBottom: '1.5em',
+      },
+      'h1, h2, h3, h4, h5, h6': {
+        fontWeight: 400,
+        fontFamily: 'heading',
+        color: 'darker',
+      },
+      h1: {
+        fontSize: '6rem',
+      },
+      h2: {
+        fontSize: '4.8rem',
+      },
+      h3: {
+        fontSize: '3.6rem',
+      },
+      h4: {
+        fontSize: '3rem',
+      },
+      h5: {
+        fontSize: '2.4rem',
+      },
+      h6: {
+        fontSize: '2rem',
       },
     },
   },
@@ -37,6 +68,7 @@ export const theme = extendTheme({
     borderLight: '#ffffff',
     borderInput: '#d8d8d8',
     borderInputFocus: '#000000',
+    transparent: 'transparent',
   },
   fontSizes: {
     xs: '20px',
@@ -46,14 +78,16 @@ export const theme = extendTheme({
     xl: '48px',
     '2xl': '60px',
   },
-  a: {
-    color: '#000000',
-    textDecoration: 'none',
+  'a:focus': {
+    outline: 'none',
+    color: 'primary',
   },
-  'a:focus, a:hover, a:active': {
-    outline: 0,
+  'a:active': {
+    outline: 'none',
+    color: 'primary',
   },
-  p: {
-    marginBottom: '1.5em',
+  'a:hover': {
+    outline: 'none',
+    color: 'primary',
   },
 });
