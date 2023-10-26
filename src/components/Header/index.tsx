@@ -119,9 +119,8 @@ const Header: React.FC = () => {
               letterSpacing="0.1em"
               textTransform="uppercase"
               textDecoration="none"
-              color="#eaddc7"
-              fontWeight="400"
-              fontFamily="Marcellus, sans-serif"
+              color="white"
+              fontFamily="heading"
               _hover={{
                 color: '#eaddc7',
                 listStyleType: 'none',
