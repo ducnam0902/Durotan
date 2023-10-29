@@ -76,6 +76,7 @@ const Header: React.FC = () => {
             transform="translateY(-50%)"
             cursor="pointer"
             onClick={handleCloseMegaSales}
+            alt="closeButton"
           />
         </Box>
       )}
