@@ -49,18 +49,18 @@ const Header: React.FC = () => {
             textTransform="uppercase"
             fontWeight="500"
             textAlign="center"
-            padding="10px 15px"
+            padding="1rem 1.5rem"
             marginBottom="0"
-            fontSize={{ base: '10px', lg: '14px' }}
+            fontSize={{ base: '1rem', lg: '1.4rem' }}
           >
             <Image
               display="inline-block"
-              marginRight="15px"
+              marginRight="1.5rem"
               src={campaginIcon}
               objectFit="cover"
-              boxSize={{ base: '12px', lg: '20px' }}
+              boxSize={{ base: '1.2rem', lg: '2rem' }}
             />
-            <Box fontWeight="600" as="span" color="#fe441b" marginRight="10px">
+            <Box fontWeight="600" as="span" color="#fe441b" marginRight="1rem">
               Mega Sale
             </Box>
             discount all item up to 30% for christmast event
@@ -70,27 +70,32 @@ const Header: React.FC = () => {
             display="inline-block"
             src={closeIcon}
             objectFit="cover"
-            boxSize={{ base: '12px', lg: '16px' }}
+            boxSize={{ base: '1.2rem', lg: '1.6rem' }}
             top="50%"
-            right="10px"
+            right="1rem"
             transform="translateY(-50%)"
             cursor="pointer"
             onClick={handleCloseMegaSales}
+            alt="closeButton"
           />
         </Box>
       )}
-      <Box backgroundColor="#232324" height={{ base: '45px', lg: '97px' }} lineHeight={{ base: '45px', lg: '97px' }}>
+      <Box
+        backgroundColor="#232324"
+        height={{ base: '4.5rem', lg: '9.7rem' }}
+        lineHeight={{ base: '4.5rem', lg: '9.7rem' }}
+      >
         <Grid
-          templateColumns={{ base: '25px repeat(6,1fr) 25px', xl: '60px repeat(10,1fr) 60px' }}
+          templateColumns={{ base: '2.5rem repeat(6,1fr) 2.5rem', xl: '6rem repeat(10,1fr) 6rem' }}
           borderBottom={{ base: '1px solid #c4c3bd', xl: 'none' }}
-          height={{ base: '45px', lg: '97px' }}
+          height={{ base: '4.5rem', lg: '9.7rem' }}
         >
           <GridItem hideBelow="xl" colStart={2} colEnd={6}>
-            <Grid templateColumns="repeat(5, 100px)" justifyItems="center">
+            <Grid templateColumns="repeat(5, 10rem)" justifyItems="center">
               {primaryMenu.map((menuItem, index) => (
                 <Box
                   color="#eaddc7"
-                  fontSize="16px"
+                  fontSize="1.6rem"
                   letterSpacing="0.7px"
                   listStyleType="none"
                   key={index}
@@ -115,7 +120,7 @@ const Header: React.FC = () => {
             <CustomLink
               as={Link}
               to="/"
-              fontSize={{ base: '22px', lg: '30px' }}
+              fontSize={{ base: '2.2rem', lg: '3rem' }}
               letterSpacing="0.1em"
               textTransform="uppercase"
               textDecoration="none"
@@ -135,29 +140,34 @@ const Header: React.FC = () => {
           <GridItem colStart={{ base: 7, xl: 10 }} colEnd={{ base: 8, xl: 12 }} justifyItems={'end'}>
             <Grid
               templateColumns="repeat(4, 28px)"
-              height={{ base: '49px', lg: '97px' }}
+              height={{ base: '4.9rem', lg: '9.7rem' }}
               justifyContent="end"
-              gap="10px"
+              gap="1rem"
             >
               <GridItem colSpan={1} alignSelf="center">
-                <Image src={searchIcon} objectFit="cover" boxSize={{ base: '18px', lg: '21px' }} cursor="pointer" />
+                <Image src={searchIcon} objectFit="cover" boxSize={{ base: '1.8rem', lg: '2.1rem' }} cursor="pointer" />
               </GridItem>
               <GridItem colSpan={1} alignSelf="center">
-                <Image src={accountIcon} objectFit="cover" boxSize={{ base: '18px', lg: '21px' }} cursor="pointer" />
+                <Image
+                  src={accountIcon}
+                  objectFit="cover"
+                  boxSize={{ base: '1.8rem', lg: '2.1rem' }}
+                  cursor="pointer"
+                />
               </GridItem>
               <GridItem colSpan={1} alignSelf="center" hideBelow="xl">
                 <Box display="inherit" position="relative">
                   <Image
-                    marginRight="19px"
+                    marginRight="1.9rem"
                     src={favouriteIcon}
                     objectFit="cover"
-                    boxSize={{ base: '18px', lg: '22px' }}
+                    boxSize={{ base: '1.8rem', lg: '2.2rem' }}
                     cursor="pointer"
                   />
                   <Circle
                     background="#da5f39"
                     size="16px"
-                    fontSize="10px"
+                    fontSize="1rem"
                     lineHeight="20px"
                     color="#ffffff"
                     position="absolute"
@@ -171,12 +181,12 @@ const Header: React.FC = () => {
               </GridItem>
               <GridItem colSpan={1} alignSelf="center">
                 <Box display="inherit" position="relative" onClick={onOpen}>
-                  <Image src={cartIcon} objectFit="cover" boxSize={{ base: '18px', lg: '22px' }} cursor="pointer" />
+                  <Image src={cartIcon} objectFit="cover" boxSize={{ base: '1.8rem', lg: '2.2rem' }} cursor="pointer" />
                   <Circle
                     background="#da5f39"
                     size="16px"
-                    fontSize="10px"
-                    lineHeight="20px"
+                    fontSize="1rem"
+                    lineHeight="2rem"
                     color="#ffffff"
                     position="absolute"
                     top="10px"
@@ -188,7 +198,12 @@ const Header: React.FC = () => {
                 </Box>
               </GridItem>
               <GridItem colSpan={1} hideFrom="xl" alignSelf="center">
-                <Image src={hamburgerIcon} objectFit="cover" cursor="pointer" boxSize={{ base: '18px', lg: '20px' }} />
+                <Image
+                  src={hamburgerIcon}
+                  objectFit="cover"
+                  cursor="pointer"
+                  boxSize={{ base: '1.8rem', lg: '2rem' }}
+                />
               </GridItem>
             </Grid>
           </GridItem>
@@ -197,10 +212,10 @@ const Header: React.FC = () => {
 
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={{ base: 'xs', lg: 'md' }}>
         <DrawerOverlay />
-        <DrawerContent paddingLeft={{ base: '20px', lg: '60px' }} paddingRight={{ base: '20px', lg: '60px' }}>
+        <DrawerContent paddingLeft={{ base: '2rem', lg: '6rem' }} paddingRight={{ base: '2rem', lg: '6rem' }}>
           <DrawerHeader
             display="flex"
-            padding="40px 0 40px 0"
+            padding="4rem 0 4rem 0"
             borderBottom="1px solid #dedede"
             justifyContent="space-between"
           >
@@ -209,13 +224,13 @@ const Header: React.FC = () => {
             </Heading>
             <Image
               display="inline-block"
-              marginRight="19px"
+              marginRight="1.9rem"
               src={closeIcon}
               objectFit="cover"
-              boxSize={{ base: '18px', lg: '20px' }}
+              boxSize={{ base: '1.8rem', lg: '2rem' }}
               cursor="pointer"
               onClick={onClose}
-              lineHeight="20px"
+              lineHeight="2rem"
               color="brand.darker"
             />
           </DrawerHeader>
