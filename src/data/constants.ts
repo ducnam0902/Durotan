@@ -4,7 +4,7 @@ import shirtIcon from '../assets/shirt.svg';
 import shoeIcon from '../assets/shoe.svg';
 import tagIcon from '../assets/tags.svg';
 
-export const primaryMenu = ['Home', 'Shop', 'Blog', 'About', 'Contact'];
+export const primaryMenu = ['Home', 'Shop', 'Blog', 'About'];
 export const secondaryMenu = [
   {
     title: 'Home',
