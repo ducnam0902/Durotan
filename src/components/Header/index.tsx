@@ -2,8 +2,6 @@ import {
   Box,
   Text,
   Image,
-  Grid,
-  GridItem,
   Link as CustomLink,
   Drawer,
   DrawerOverlay,
@@ -14,6 +12,8 @@ import {
   useDisclosure,
   Heading,
   Circle,
+  Container,
+  Flex,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { primaryMenu } from '@durotan/data/constants';
@@ -44,10 +44,9 @@ const Header: React.FC = () => {
       {isShowMegasales && (
         <Box background="#2b2b2d" position="relative">
           <Text
-            letterSpacing="0.7px"
-            color="white"
+            color="#eaddc7"
             textTransform="uppercase"
-            fontWeight="500"
+            lineHeight="2.5rem"
             textAlign="center"
             padding="1rem 1.5rem"
             marginBottom="0"
@@ -55,12 +54,12 @@ const Header: React.FC = () => {
           >
             <Image
               display="inline-block"
-              marginRight="1.5rem"
+              marginRight="0.5rem"
               src={campaginIcon}
               objectFit="cover"
-              boxSize={{ base: '1.2rem', lg: '2rem' }}
+              boxSize={{ base: '1.2rem', lg: '1.8rem' }}
             />
-            <Box fontWeight="600" as="span" color="#fe441b" marginRight="1rem">
+            <Box fontWeight="600" as="span" color="#fe441b" marginRight="0.5rem">
               Mega Sale
             </Box>
             discount all item up to 30% for christmast event
@@ -70,7 +69,7 @@ const Header: React.FC = () => {
             display="inline-block"
             src={closeIcon}
             objectFit="cover"
-            boxSize={{ base: '1.2rem', lg: '1.6rem' }}
+            boxSize={{ base: '1.2rem', lg: '1.4rem' }}
             top="50%"
             right="1rem"
             transform="translateY(-50%)"
@@ -80,50 +79,42 @@ const Header: React.FC = () => {
           />
         </Box>
       )}
-      <Box
-        backgroundColor="#232324"
-        height={{ base: '4.5rem', lg: '9.7rem' }}
-        lineHeight={{ base: '4.5rem', lg: '9.7rem' }}
-      >
-        <Grid
-          templateColumns={{ base: '2.5rem repeat(6,1fr) 2.5rem', xl: '6rem repeat(10,1fr) 6rem' }}
-          borderBottom={{ base: '1px solid #c4c3bd', xl: 'none' }}
+      <Box backgroundColor="#232324">
+        <Container
+          maxW="container.xl"
+          margin="auto"
           height={{ base: '4.5rem', lg: '9.7rem' }}
+          borderBottom={{ base: '1px solid #c4c3bd', xl: 'none' }}
+          display="flex"
+          alignItems="center"
         >
-          <GridItem hideBelow="xl" colStart={2} colEnd={6}>
-            <Grid templateColumns="repeat(5, 10rem)" justifyItems="center">
-              {primaryMenu.map((menuItem, index) => (
-                <Box
-                  color="#eaddc7"
-                  fontSize="1.6rem"
-                  letterSpacing="0.7px"
-                  listStyleType="none"
-                  key={index}
-                  textTransform="uppercase"
-                  cursor="pointer"
-                  _hover={{
-                    color: '#da5f39',
-                  }}
-                  as={Link}
-                  to={menuItem === 'Home' ? '/' : `/${menuItem.toLowerCase()}`}
-                >
-                  {menuItem}
-                </Box>
-              ))}
-            </Grid>
-          </GridItem>
-          <GridItem
-            colStart={{ base: 2, xl: 6 }}
-            colEnd={{ base: 3, xl: 8 }}
-            textAlign={{ base: 'left', xl: 'center' }}
-          >
+          <Flex display={{ base: 'none', lg: 'block' }}>
+            {primaryMenu.map((menuItem, index) => (
+              <Box
+                color="#eaddc7"
+                fontSize="1.6rem"
+                letterSpacing="0.7px"
+                key={index}
+                textTransform="uppercase"
+                cursor="pointer"
+                marginRight={index === primaryMenu.length - 1 ? 0 : '4.5rem'}
+                _hover={{
+                  color: '#da5f39',
+                }}
+                as={Link}
+                to={menuItem === 'Home' ? '/' : `/${menuItem.toLowerCase()}`}
+              >
+                {menuItem}
+              </Box>
+            ))}
+          </Flex>
+          <Box marginLeft={{ base: 'none', lg: 'auto' }} marginRight="auto" textAlign={{ base: 'left', xl: 'center' }}>
             <CustomLink
               as={Link}
               to="/"
               fontSize={{ base: '2.2rem', lg: '3rem' }}
               letterSpacing="0.1em"
               textTransform="uppercase"
-              textDecoration="none"
               color="white"
               fontFamily="heading"
               _hover={{
@@ -136,89 +127,77 @@ const Header: React.FC = () => {
             >
               Durotan
             </CustomLink>
-          </GridItem>
-          <GridItem colStart={{ base: 7, xl: 10 }} colEnd={{ base: 8, xl: 12 }} justifyItems={'end'}>
-            <Grid
-              templateColumns="repeat(4, 28px)"
-              height={{ base: '4.9rem', lg: '9.7rem' }}
-              justifyContent="end"
-              gap="1rem"
-            >
-              <GridItem colSpan={1} alignSelf="center">
-                <Image src={searchIcon} objectFit="cover" boxSize={{ base: '1.8rem', lg: '2.1rem' }} cursor="pointer" />
-              </GridItem>
-              <GridItem colSpan={1} alignSelf="center">
-                <Image
-                  src={accountIcon}
-                  objectFit="cover"
-                  boxSize={{ base: '1.8rem', lg: '2.1rem' }}
-                  cursor="pointer"
-                />
-              </GridItem>
-              <GridItem colSpan={1} alignSelf="center" hideBelow="xl">
-                <Box display="inherit" position="relative">
-                  <Image
-                    marginRight="1.9rem"
-                    src={favouriteIcon}
-                    objectFit="cover"
-                    boxSize={{ base: '1.8rem', lg: '2.2rem' }}
-                    cursor="pointer"
-                  />
-                  <Circle
-                    background="#da5f39"
-                    size="16px"
-                    fontSize="1rem"
-                    lineHeight="20px"
-                    color="#ffffff"
-                    position="absolute"
-                    top="10px"
-                    right="3px"
-                    zIndex="3"
-                  >
-                    0
-                  </Circle>
-                </Box>
-              </GridItem>
-              <GridItem colSpan={1} alignSelf="center">
-                <Box display="inherit" position="relative" onClick={onOpen}>
-                  <Image src={cartIcon} objectFit="cover" boxSize={{ base: '1.8rem', lg: '2.2rem' }} cursor="pointer" />
-                  <Circle
-                    background="#da5f39"
-                    size="16px"
-                    fontSize="1rem"
-                    lineHeight="2rem"
-                    color="#ffffff"
-                    position="absolute"
-                    top="10px"
-                    right="3px"
-                    zIndex="3"
-                  >
-                    2
-                  </Circle>
-                </Box>
-              </GridItem>
-              <GridItem colSpan={1} hideFrom="xl" alignSelf="center">
-                <Image
-                  src={hamburgerIcon}
-                  objectFit="cover"
-                  cursor="pointer"
-                  boxSize={{ base: '1.8rem', lg: '2rem' }}
-                />
-              </GridItem>
-            </Grid>
-          </GridItem>
-        </Grid>
+          </Box>
+          <Flex height={{ base: '4.9rem', lg: '9.7rem' }} justifyContent="end" alignItems="center">
+            <Image
+              marginLeft="3rem"
+              src={searchIcon}
+              objectFit="cover"
+              boxSize={{ base: '1.8rem', lg: '2.3rem' }}
+              cursor="pointer"
+            />
+            <Image
+              marginLeft="3rem"
+              src={accountIcon}
+              objectFit="cover"
+              boxSize={{ base: '1.8rem', lg: '2.3rem' }}
+              cursor="pointer"
+            />
+            <Box display="inherit" hideBelow="xl">
+              <Image
+                marginLeft="2.8rem"
+                src={favouriteIcon}
+                objectFit="cover"
+                boxSize={{ base: '1.8rem', lg: '2.3rem' }}
+                cursor="pointer"
+              />
+              <Circle
+                background="#da5f39"
+                size="1.6rem"
+                fontSize="1rem"
+                lineHeight="2rem"
+                color="#ffffff"
+                transform="translate(-0.8rem, 1.4rem)"
+              >
+                0
+              </Circle>
+            </Box>
+            <Box display="inherit" onClick={onOpen}>
+              <Image
+                marginLeft="2.8rem"
+                src={cartIcon}
+                objectFit="cover"
+                boxSize={{ base: '1.8rem', lg: '2.3rem' }}
+                cursor="pointer"
+              />
+              <Circle
+                background="#da5f39"
+                size="1.6rem"
+                fontSize="1rem"
+                lineHeight="2rem"
+                color="#ffffff"
+                transform="translate(-0.8rem, 1.4rem)"
+              >
+                2
+              </Circle>
+            </Box>
+            <Image
+              marginLeft="2.8rem"
+              hideFrom="xl"
+              src={hamburgerIcon}
+              objectFit="cover"
+              cursor="pointer"
+              boxSize={{ base: '1.8rem', lg: '2.3rem' }}
+              onClick={onOpen}
+            />
+          </Flex>
+        </Container>
       </Box>
 
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={{ base: 'xs', lg: 'md' }}>
         <DrawerOverlay />
         <DrawerContent paddingLeft={{ base: '2rem', lg: '6rem' }} paddingRight={{ base: '2rem', lg: '6rem' }}>
-          <DrawerHeader
-            display="flex"
-            padding="4rem 0 4rem 0"
-            borderBottom="1px solid #dedede"
-            justifyContent="space-between"
-          >
+          <DrawerHeader display="flex" padding="4rem 0" borderBottom="1px solid #dedede" justifyContent="space-between">
             <Heading as="h5" color="darker">
               Cart (0)
             </Heading>
