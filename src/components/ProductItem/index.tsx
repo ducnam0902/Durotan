@@ -68,18 +68,18 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, colorGrou
             backgroundSize="cover"
             backgroundPosition="center"
             width="100%"
-            height="348px"
+            height="34.8rem"
             position="relative"
           >
             <Flex
               flexDirection={'column'}
               opacity="0"
-              transform="translateY(20px)"
+              transform="translateY(2rem)"
               position="absolute"
               bottom="0"
               left="0"
               width="100%"
-              padding="18px 0 3px 0"
+              padding="1.8rem 0 0.3rem 0"
               backgroundColor="#fff"
               transition="all 0.4s ease-in-out"
             >
@@ -109,13 +109,13 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, colorGrou
               </Stack>
             </Flex>
           </Box>
-          <Flex direction="column" paddingTop="18px" paddingBottom="20px">
-            <Text fontSize="13px" textTransform="uppercase" color="#999999" letterSpacing="1.3px" marginBottom="3px">
+          <Flex direction="column" paddingTop="1.8rem" paddingBottom="2rem">
+            <Text fontSize="1.3rem" textTransform="uppercase" color="gray" letterSpacing="1.3px" marginBottom="0.3rem">
               {category}
             </Text>
             <Text
               id="productName"
-              fontSize="18px"
+              fontSize="1.8rem"
               fontWeight="400"
               color="darker"
               transition="all .3s ease-in"
@@ -127,13 +127,13 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, colorGrou
               {name}
             </Text>
 
-            <Text color="#ea311d" fontSize="20px">
+            <Text color="#ea311d" fontSize="2rem">
               ${price.toString()}
             </Text>
           </Flex>
 
           <Button
-            fontSize="14px"
+            fontSize="1.4rem"
             textTransform="uppercase"
             letterSpacing=".075em"
             color="darker"
@@ -142,7 +142,7 @@ const ProductItem: React.FC<FeaturedState> = ({ name, price, category, colorGrou
             border="1px solid #000000"
             borderRadius="none"
             fontWeight="400"
-            transform="translateY(-10px)"
+            transform="translateY(-1rem)"
             opacity="0"
             type="submit"
           >

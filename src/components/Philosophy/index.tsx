@@ -11,23 +11,23 @@ const ImageWrapper = styled(Box)`
 
 const Philosophy: React.FC = () => {
   return (
-    <Box paddingTop="55px">
-      <Container maxW={{ base: 'container.sm', md: 'container.lg' }} padding="15px" textAlign="center">
+    <Box paddingTop="5.5rem">
+      <Container maxW={{ base: 'container.sm', md: 'container.lg' }} padding="1.5rem" textAlign="center">
         <Heading
-          marginBottom="12px"
-          fontSize={{ base: '30px', md: '48px' }}
+          marginBottom="1.2rem"
+          fontSize={{ base: '3rem', md: '4.8rem' }}
           fontWeight="400"
-          lineHeight={{ base: '30px', md: '64px' }}
+          lineHeight={{ base: '3rem', md: '6.4rem' }}
           color="darker"
         >
           Our Philosophy
         </Heading>
         <Text
-          marginTop="16px"
-          marginBottom="27px"
+          marginTop="1.6rem"
+          marginBottom="2.7rem"
           color="#666666"
-          fontSize="18px"
-          lineHeight="36px"
+          fontSize="1.8rem"
+          lineHeight="3.6rem"
           fontWeight="normal"
         >
           Established in 1991, Durotan & Logan Cee, 2 fashion artists work together in UK, start from design the casual
@@ -35,9 +35,9 @@ const Philosophy: React.FC = () => {
           Durotan’s items alway look very basic but never out trend, easy to mixed with anystyle.
         </Text>
       </Container>
-      <Container maxW={{ base: 'container.sm', md: 'container.xl' }} paddingTop="55px">
+      <Container maxW={{ base: 'container.sm', md: 'container.xl' }} paddingTop="5.5rem">
         <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}>
-          <GridItem padding={{ base: '15px', md: '10px 10px 10px 15px', xl: '0px 45px 0px 10px' }}>
+          <GridItem padding={{ base: '1.5rem', md: '10px 10px 10px 15px', xl: '0px 45px 0px 10px' }}>
             <ImageWrapper overflow="hidden" height={{ base: '300px', md: '450px', xl: '650px' }}>
               <Box
                 padding={{ base: '30px 20px 30px 20px', xl: '78px 75px 86px 75px' }}

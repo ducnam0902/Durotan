@@ -16,7 +16,7 @@ const RadioGroup = ({ ...props }) => {
         marginBottom="10px"
         lineHeight="40px"
         fontSize="14px"
-        color="#999"
+        color="gray"
         border="1px solid #fff"
         transition="all 0.4s"
         _hover={{

@@ -1,4 +1,4 @@
-import { Container, Grid, GridItem } from '@chakra-ui/layout';
+import { Container, Flex, Box } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/image';
 
 import brand01 from '@durotan/assets/brand01.png';
@@ -11,27 +11,17 @@ const Branch: React.FC = () => {
   return (
     <Container
       maxW="container.xl"
-      marginTop="42px"
-      padding="15px"
-      marginBottom={{ base: '60px', lg: '80px', xl: '100px' }}
+      marginTop="4.2rem"
+      padding="1.5rem"
+      marginBottom={{ base: '6rem', lg: '8rem', xl: '10rem' }}
     >
-      <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }} gap="20px" justifyItems="center">
-        <GridItem colStart={{ lg: 1 }} colEnd={{ lg: 2 }}>
-          <Image src={brand01} />
-        </GridItem>
-        <GridItem colStart={{ lg: 2 }} colEnd={{ lg: 3 }}>
-          <Image src={brand02} />
-        </GridItem>
-        <GridItem colStart={{ lg: 3 }} colEnd={{ lg: 4 }}>
-          <Image src={brand03} />
-        </GridItem>
-        <GridItem colStart={{ lg: 4 }} colEnd={{ lg: 5 }}>
-          <Image src={brand04} />
-        </GridItem>
-        <GridItem colStart={{ lg: 5 }} colEnd={{ lg: 6 }}>
-          <Image src={brand05} />
-        </GridItem>
-      </Grid>
+      <Flex gap="2rem" justifyContent="center" flexWrap="wrap">
+        <Image src={brand01} />
+        <Image src={brand02} />
+        <Image src={brand03} />
+        <Image src={brand04} />
+        <Image src={brand05} />
+      </Flex>
     </Container>
   );
 };

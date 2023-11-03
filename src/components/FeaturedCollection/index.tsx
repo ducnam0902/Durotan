@@ -8,21 +8,21 @@ const FeaturedCollection: React.FC = () => {
   return (
     <Box>
       <Heading
-        fontSize={{ base: '30px', md: '48px' }}
+        fontSize={{ base: '3rem', md: '4.8rem' }}
         fontWeight="400"
-        lineHeight={{ base: '30px', md: '64px' }}
+        lineHeight={{ base: '3rem', md: '6.4rem' }}
         color="darker"
         textAlign="center"
       >
         Featured Collections
       </Heading>
-      <Container maxW={{ base: 'container.sm', md: 'container.xl' }} padding="30px">
+      <Container maxW={{ base: 'container.sm', md: 'container.xl' }} padding="3rem">
         <Grid templateColumns={{ base: '"repeat(1, 1fr)"', lg: 'repeat(4, 1fr)' }} gap={6}>
           {isLoading ? (
             <Stack>
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
+              <Skeleton height="2rem" />
+              <Skeleton height="2rem" />
+              <Skeleton height="2rem" />
             </Stack>
           ) : (
             data?.map((item, key) => <ProductItem key={key} {...item} />)
