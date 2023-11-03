@@ -1,5 +1,5 @@
 import { Image } from '@chakra-ui/image';
-import { Box, Grid, GridItem, Heading, Text, Wrap, WrapItem, Center, Flex } from '@chakra-ui/layout';
+import { Box, Container, Heading, Text, Wrap, WrapItem, Center, Flex } from '@chakra-ui/layout';
 import { Input } from '@chakra-ui/input';
 import { Button } from '@chakra-ui/button';
 import { Link } from 'react-router-dom';
@@ -21,11 +21,10 @@ interface IHeadingTitleProps {
 const HeadingTitle: FC<IHeadingTitleProps> = ({ title }) => (
   <Heading
     as="h6"
-    marginBottom="24px"
-    fontSize="18px"
+    marginBottom="2.4rem"
+    fontSize="1.8rem"
     letterSpacing="0.05em"
-    lineHeight="18px"
-    fontWeight="normal"
+    lineHeight="1.8rem"
     textTransform="uppercase"
     textAlign="center"
     color="darker"
@@ -38,98 +37,103 @@ const Footer: React.FC = () => {
   return (
     <Box>
       <Box borderTop="1px solid #dbdbdb" borderBottom="1px solid #dbdbdb">
-        <Grid templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(3,1fr)' }}>
-          <GridItem
-            colStart={{ base: 1, lg: 1 }}
-            colEnd={{ base: 2, lg: 2 }}
+        <Container maxW="full" display="flex" flexDirection={{ base: 'column', lg: 'row' }} alignItems="center">
+          <Box
+            padding={{ base: '3rem 1rem 2rem', lg: '9rem 1.5rem 3.6rem' }}
+            width={{ base: '100%', md: '33.33333%' }}
+            height={{ base: '15rem', lg: '27rem' }}
             borderRight={{ lg: '1px solid #dbdbdb' }}
-            padding="90px 15px 36px"
-            justifyItems="center"
           >
-            <Box>
-              <HeadingTitle title="About Durotan" />
-              <Text
-                margin="1em auto"
-                textAlign="center"
-                fontSize="16px"
-                color="#949494"
-                lineHeight="26px"
-                letterSpacing="0.015em"
-                width="80%"
-              >
-                The inspiration got from natural, color pastel and activities the daily.
-              </Text>
-            </Box>
-          </GridItem>
-          <GridItem
-            colStart={{ base: 1, lg: 2 }}
-            colEnd={{ base: 2, lg: 3 }}
+            <HeadingTitle title="About Durotan" />
+            <Text
+              margin="1em auto"
+              textAlign="center"
+              fontSize="1.6rem"
+              color="#949494"
+              lineHeight="2.6rem"
+              letterSpacing="0.015em"
+              width={{ base: '100%', lg: '50%' }}
+            >
+              The inspiration got from natural, color pastel and activities the daily.
+            </Text>
+          </Box>
+          <Box
+            padding={{ base: '3rem 1rem 2rem', lg: '9rem 1.5rem 3.6rem' }}
+            width={{ base: '100%', md: '33.33333%' }}
+            height={{ base: '15rem', lg: '27rem' }}
             borderRight={{ lg: '1px solid #dbdbdb' }}
-            padding="90px 15px 36px"
           >
             <HeadingTitle title="Our Social" />
             <Center>
               {socialIcons.map((icon, index) => (
                 <Image
                   display="inline-block"
-                  marginLeft={{ base: '10px', lg: '19px' }}
+                  marginLeft={{ base: '1rem', lg: '1.9rem' }}
                   src={icon}
                   objectFit="cover"
-                  boxSize={{ base: '18px', lg: '24px' }}
+                  boxSize={{ base: '1.8rem', lg: '2.4rem' }}
                   cursor="pointer"
                   key={index}
                 />
               ))}
             </Center>
-          </GridItem>
-          <GridItem colStart={{ base: 1, lg: 3 }} colEnd={{ base: 2, lg: 4 }} padding="90px 15px 36px">
+          </Box>
+          <Box
+            padding={{ base: '3rem 1rem 2rem', lg: '9rem 1.5rem 3.6rem' }}
+            width={{ base: '100%', md: '33.33333%' }}
+            height={{ base: '15rem', lg: '27rem' }}
+          >
             <HeadingTitle title="Newsletter" />
             <Flex
-              marginLeft="18px"
-              marginRight="18px"
+              marginLeft="1.8rem"
+              marginRight="1.8rem"
               border="1px solid #d8d8d8"
-              padding="9px 18px 8px 18px"
-              height="55px"
+              padding="0.9rem 1.8rem 0.8rem"
+              height="5.5rem"
             >
               <Input
-                fontSize="16px"
+                fontSize="1.6rem"
                 variant="unstyled"
                 placeholder="Your email address"
                 _placeholder={{
-                  fontSize: '16px',
+                  fontSize: '1.6rem',
                   color: '#cccccc',
                 }}
               />
               <Button
                 textTransform="uppercase"
-                fontSize="14px"
+                fontSize="1.4rem"
                 fontWeight="600"
                 letterSpacing="0.050em"
-                color="#000000"
+                color="darker"
                 backgroundColor="transparent"
+                transform=" translate(0.6rem, 0.6rem)"
               >
                 Subscribe
               </Button>
             </Flex>
-          </GridItem>
-        </Grid>
+          </Box>
+        </Container>
       </Box>
+
       <Center>
         <Wrap
           direction={{ base: 'column', lg: 'row' }}
           margin="0 auto"
-          fontSize="16px"
+          fontSize="1.6rem"
           letterSpacing="0.7px"
-          color="#666666"
-          padding="47px 0"
+          color="textMain"
+          padding="4.7rem 0"
         >
           {secondaryMenu.map((menuItem, index) => (
             <WrapItem
               key={index}
               as={Link}
               to={menuItem.link}
-              paddingLeft="29px"
-              paddingRight="29px"
+              paddingLeft="2.9rem"
+              paddingRight="2.9rem"
+              paddingTop="1rem"
+              paddingBottom="1rem"
               textTransform="uppercase"
               cursor="pointer"
               _hover={{
@@ -141,8 +145,8 @@ const Footer: React.FC = () => {
           ))}
         </Wrap>
       </Center>
-      <Box padding="50px 60px">
-        <Text marginBottom="15px" textAlign="center" fontSize="16px" letterSpacing="0.025em" color="#949494">
+      <Box padding="5rem 6rem">
+        <Text marginBottom="1.5rem" textAlign="center" fontSize="1.6rem" letterSpacing="0.025em" color="#949494">
           © 2021 durotan. all rights reserved
         </Text>
       </Box>
