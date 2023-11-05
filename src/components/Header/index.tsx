@@ -44,7 +44,7 @@ const Header: React.FC = () => {
       {isShowMegasales && (
         <Box background="#2b2b2d" position="relative">
           <Text
-            color="#eaddc7"
+            color="white"
             textTransform="uppercase"
             lineHeight="2.5rem"
             textAlign="center"
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
           <Flex display={{ base: 'none', lg: 'block' }}>
             {primaryMenu.map((menuItem, index) => (
               <Box
-                color="#eaddc7"
+                color="white"
                 fontSize="1.6rem"
                 letterSpacing="0.7px"
                 key={index}
@@ -118,11 +118,11 @@ const Header: React.FC = () => {
               color="white"
               fontFamily="heading"
               _hover={{
-                color: '#eaddc7',
+                color: 'white',
                 listStyleType: 'none',
               }}
               _active={{
-                color: '#eaddc7',
+                color: 'white',
               }}
             >
               Durotan
@@ -131,13 +131,15 @@ const Header: React.FC = () => {
           <Flex height={{ base: '4.9rem', lg: '9.7rem' }} justifyContent="end" alignItems="center">
             <Image
               marginLeft="3rem"
+              marginRight="1.5rem"
               src={searchIcon}
               objectFit="cover"
               boxSize={{ base: '1.8rem', lg: '2.3rem' }}
               cursor="pointer"
             />
             <Image
-              marginLeft="3rem"
+              marginLeft="1.5rem"
+              marginRight="1.5rem"
               src={accountIcon}
               objectFit="cover"
               boxSize={{ base: '1.8rem', lg: '2.3rem' }}
@@ -145,7 +147,7 @@ const Header: React.FC = () => {
             />
             <Box display="inherit" hideBelow="xl">
               <Image
-                marginLeft="2.8rem"
+                marginLeft="1.5rem"
                 src={favouriteIcon}
                 objectFit="cover"
                 boxSize={{ base: '1.8rem', lg: '2.3rem' }}
@@ -156,7 +158,7 @@ const Header: React.FC = () => {
                 size="1.6rem"
                 fontSize="1rem"
                 lineHeight="2rem"
-                color="#ffffff"
+                color="light"
                 transform="translate(-0.8rem, 1.4rem)"
               >
                 0
@@ -175,7 +177,7 @@ const Header: React.FC = () => {
                 size="1.6rem"
                 fontSize="1rem"
                 lineHeight="2rem"
-                color="#ffffff"
+                color="light"
                 transform="translate(-0.8rem, 1.4rem)"
               >
                 2
