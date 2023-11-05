@@ -1,7 +1,7 @@
 import { Image } from '@chakra-ui/image';
 import { Box, Container, Heading, Text, Wrap, WrapItem, Center, Flex } from '@chakra-ui/layout';
 import { Input } from '@chakra-ui/input';
-import { Button } from '@chakra-ui/button';
+import Button from '@durotan/components/Button';
 import { Link } from 'react-router-dom';
 
 import { secondaryMenu } from '@durotan/data/constants';
@@ -100,15 +100,7 @@ const Footer: React.FC = () => {
                   color: '#cccccc',
                 }}
               />
-              <Button
-                textTransform="uppercase"
-                fontSize="1.4rem"
-                fontWeight="600"
-                letterSpacing="0.050em"
-                color="darker"
-                backgroundColor="transparent"
-                transform=" translate(0.6rem, 0.6rem)"
-              >
+              <Button letterSpacing="0.050em" transform=" translate(0.6rem, 0.6rem)">
                 Subscribe
               </Button>
             </Flex>

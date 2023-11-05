@@ -11,11 +11,11 @@ const RadioGroup = ({ ...props }) => {
       <Box
         {...checkbox}
         cursor={props.isDisabled ? 'not-allowed' : 'pointer'}
-        minWidth="38px"
+        minWidth="3.8rem"
         textAlign="center"
-        marginBottom="10px"
-        lineHeight="40px"
-        fontSize="14px"
+        marginBottom="1rem"
+        lineHeight="4rem"
+        fontSize="1.4rem"
         color="gray"
         border="1px solid #fff"
         transition="all 0.4s"
