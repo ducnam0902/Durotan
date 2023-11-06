@@ -1,4 +1,4 @@
-import { Container, Flex, Box } from '@chakra-ui/layout';
+import { Container, Flex } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/image';
 
 import brand01 from '@durotan/assets/brand01.png';

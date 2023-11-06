@@ -2,7 +2,7 @@ import About from '@durotan/pages/About';
 import Blog from '@durotan/pages/Blog';
 import Contact from '@durotan/pages/Contact';
 import HomePage from '@durotan/pages/HomePage';
-import Policy from '@durotan/pages/Policy';
+import PageNotFound from '@durotan/pages/PageNotFound';
 import Shop from '@durotan/pages/Shop';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -14,7 +14,7 @@ const AllRoutes: React.FC = () => {
       <Route path="/blog" element={<Blog />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/policy" element={<Policy />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

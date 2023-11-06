@@ -26,10 +26,6 @@ export const secondaryMenu = [
     title: 'Contact us',
     link: '/contact',
   },
-  {
-    title: 'Policy',
-    link: '/policy',
-  },
 ];
 
 export const elementorItem = [
